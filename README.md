@@ -120,5 +120,145 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
    ![rn-6.png](pics/rn-6.png)
    
    查看文档可以访问 http://facebook.github.io/react-native/docs/getting-started.html
+   
+###创建登陆画面
+
+- 定义React组件
+
+  在工程目录下创建一个目录components,定义一个login.js,然后在index.io.js中引用
+  
+  ![rn-7.png](pics/rn-7.png)
+  
+  
+		
+- 引用自定义组件
+
+ index.io.js修改为
+  
+  		var Login = require('./components/login.js');
+
+		var RecyleTrash = React.createClass({
+  			render: function() {
+    			return <Login />
+  			}
+		});
+		
+- 引用React组件
+  
+   		//引入库
+		var {
+  			AppRegistry,
+  			StyleSheet,
+  			Text,
+  			View,
+  			Image,
+  			TextInput,
+  			TouchableHighlight
+		} = React;
+		
+- 使用Image组件
+
+  首先需要引入Image库， 注意source中的image是需要在xcode中Images.xcassets中添加的
+  
+  		//引入库
+        var {
+  			AppRegistry,
+  			StyleSheet,
+  			Text,
+  			View,
+  			Image
+		} = React;
+
+		var Login = React.createClass({
+  		  render: function(){
+  			return (
+  				<View style={styles.container}>
+  		  		  <Image style={styles.logo}
+                       source={require('image!recycle_trash')}/>
+  		          <Text style={{color: '#333'}}>Hello</Text>
+  		       </View>
+  			);
+  		  }
+		});
+
+	  //创建样式对象
+	  var styles = StyleSheet.create({
+  	    container: {
+    	  backgroundColor: '#F5FCFF',
+    	  flex: 1,
+    	  paddingTop: 100,
+    	  alignItems: 'center'
+  	    },
+  	    logo: {
+  		  width: 66,
+  		  height: 66
+  	    }
+	  });
+	  
+  加上标题:
+  
+  		<View style={styles.container}>
+  		  <Image style={styles.logo}
+          source={require('image!recycle_trash')}/>
+  		  <Text style={styles.heading}>
+  		    TODO
+  		  </Text>
+  		</View>
+  		
+  		//...
+  		heading: {
+  	      fontSize: 20,
+  	      marginTop: 10
+        }
+
+- 使用TextInput组件
+
+  首相要引入TextInput,然后通过以下代码实现, secureTextEntry是针对安全输入，隐藏内容，类似于password 控件
+  
+  		<View style={styles.container}>
+  		  <Image style={styles.logo}
+          source={require('image!recycle_trash')}/>
+  		  <Text style={styles.heading}>
+  		    垃圾分类回收积分商城
+  		  </Text>
+  		  <TextInput style={styles.input}
+  		       placeholder="用户手机号" />
+  		  <TextInput style={styles.input}
+  		       placeholder="密码" 
+  		       secureTextEntry="true" />
+  		</View>
+  		
+  	    //...
+  	    
+  	    input: {
+  	      height: 40,
+  	      marginTop: 10,
+  	      padding: 4,
+  	      fontSize: 14,
+  	      borderWidth: 1,
+  	      borderColor: '#48bbec'
+        }
+
+- 使用TouchableHighlight组件
+
+		<TouchableHighlight style={styles.button}>
+  		    <Text style={styles.buttonText}>登 录</Text>
+  		</TouchableHighlight>
+  		
+  		//...
+  		
+  		button: {
+    		height: 40,
+    		backgroundColor: '#48bbec',
+    		alignSelf: 'stretch',
+    		marginTop: 10,
+    		justifyContent: 'center'
+  		},
+  		buttonText: {
+    		fontSize: 18,
+    		color: '#fff',
+    		alignSelf: 'center'
+  		}
+
    		
    	
