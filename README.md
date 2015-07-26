@@ -219,7 +219,7 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
   		  <Image style={styles.logo}
           source={require('image!recycle_trash')}/>
   		  <Text style={styles.heading}>
-  		    垃圾分类回收积分商城
+  		    TODO List
   		  </Text>
   		  <TextInput style={styles.input}
   		       placeholder="用户手机号" />
