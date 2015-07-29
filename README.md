@@ -259,6 +259,146 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
     		color: '#fff',
     		alignSelf: 'center'
   		}
+ - 使用ES6重构Login组件
+ 
+   login组件需要继承Component,所以要引入Component组件
+   
+   		//引入库
+		var {
+		  AppRegistry,
+		  StyleSheet,
+		  Text,
+		  View,
+		  Image,
+		  TextInput,
+		  TouchableHighlight,
+		  Component
+		} = React;
+		
+		class Login extends Component {
+  		  constructor(props) {
+		    super(props);
+		  }
+
+		  render(){
+		  	return (
+  				<View style={styles.container}>
+		  		  <Image style={styles.logo}
+        			    source={require('image!recycle_trash')}/>
+		  		  <Text style={styles.heading}>
+  				    TODO List
+		  		  </Text>
+		  		  <TextInput style={styles.input}
+  				       placeholder="用户手机号" />
+		  		  <TextInput style={styles.input}
+  				       placeholder="密码" 
+	  		       secureTextEntry="true" />
+  				  <TouchableHighlight style={styles.button}>
+		  		    <Text style={styles.buttonText}>登 录</Text>
+		  		  </TouchableHighlight>
+  				</View>
+		  	);
+		  }
+		};
+		
+  捕捉登录操作，并显示进度条
+  
+  		//引入库
+		var {
+		  AppRegistry,
+		  StyleSheet,
+		  Text,
+		  View,
+		  Image,
+		  TextInput,
+  		  TouchableHighlight,
+		  Component,
+		  ActivityIndicatorIOS
+		} = React;
+		
+		<TouchableHighlight style={styles.button} onPress={this.login.bind(this)}>
+  		    <Text style={styles.buttonText}>登 录</Text>
+  		</TouchableHighlight>
+		
+		<ActivityIndicatorIOS
+          animating={this.state.showProgress}
+          size='large'
+          style={this.styles.loader}
+        />
+        
+        login() {
+    		console.log('mobile',this.state.mobile)
+    		this.setState({showProgress: true})
+ 		 }
+
+ - 认证
+ 	
+ 	使用HTTP请求获取信息
+ 		
+ 		fetch('http://localhost:3000/api/v1/sessions')
+    	.then((res) => {
+      		return res.json();
+   		})
+    	.then((result) => {
+      		console.log(result);
+      		this.setState({showProgress: false})
+    	});
+    	
+ - 针对md5编码安装库
+ 
+ 	
+ - 根据登录状态，显示不同的页面
+ 	
+ 	
+ - 使用AsyncStorage存储和获取认证信息
+ 
+   如果登录成功，关闭应用，下次再次打开时，不需要再登录
+   
+   		AsyncStorage.setItem()
+   		AsyncStorage.multiSet()
+   		
+
+###使用Tab组件
+
+- 设置Tab文本
+
+		<TabBarIOS>
+		  <TabBarIOS.Item />
+		  <TabBarIOS.Item />
+		</TabBarIOS>
+				
+
+- 设置Tab选择状态
+- 设置Tab icon
+- 捕捉Tab onPress事件
+
+###使用ListView组件
+
+- 使用ListView
+- ListView获取数据
+- 为ListView绑定数据
+- 加载时显示进度
+- 针对rows布局
+
+###使用Navigator组件
+
+- 使用TouchableHighlight组件使rows可以触控
+- 为row添加onPress事件回调
+- 使用NavigatorIOS组件跳转到详细页面
+- 通过props传递数据到详细页面
+
+###添加search
+
+- 添加组件包含search表单
+- 在IOSNavigator组件中显示Search
+- 定义一个组件显示搜索结果
+- 过渡到搜索结果页面
+- 调用API获取搜索结果
+- 
+
+
+
+   		
 
    		
    	
