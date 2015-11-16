@@ -44,20 +44,25 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
    
    
      	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash   
-     	nvm install iojs
      	
    也可以安装node
    
-   		nvm install stable
+   		nvm install 5.0
    		
    切换iojs和node可以使用
    
-   		nvm use iojs
+   		nvm use default 5.0
+   
+   安装watchman
+   
+   		brew install watchman
    
    
 2. 安装React Native
 
-	因为react native建议使用iojs，所以这里使用iojs.
+	因为react native建议使用node.
+	
+		sudo chown -R $USER ~/.npm
    
    		npm install -g react-native-cli
 
@@ -65,7 +70,7 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
 
 	通过cli命令生成项目
 	
-		sudo react-native init RecycleTrash
+		 react-native init RecycleTrash
 		
 	如果出现一直停滞不前的话，查找日志
 	
