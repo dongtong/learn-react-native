@@ -85,6 +85,10 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
 
 4. 在iOS模拟器中启动应用
 
+	控制台启动:
+	
+		cd RecyleTrash && npm start
+		
 	安装成功后，根据控制台提示，打开xcode工程
 	
 		Open /Users/mac/React/workspace/react-native/RecyleTrash/RecyleTrash.xcodeproj
@@ -400,6 +404,18 @@ UI是基于100%本地iOS控件(UIKit)不会有违和感以及性能问题(表示
 - 过渡到搜索结果页面
 - 调用API获取搜索结果
 - 
+
+### 安装npm包
+
+可以共享npmjs.org上开源的库
+
+	npm install xxx --save
+
+然后需要重新启动react navtive 工程
+
+	npm start
+
+
 
 
 
